@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple JavaScript Object Methods</title>
+</head>
+<body>
+
+    <h1>Simple JavaScript Object Methods</h1>
+
+    <h2>String Object Methods</h2>
+    <script>
+        let text = "Hello World";
+
+        // 1. Get the length of the string
+        console.log("Length:", text.length); // Output: 11
+
+        // 2. Convert to uppercase
+        console.log("Uppercase:", text.toUpperCase()); // Output: HELLO WORLD
+
+        // 3. Find index of "World"
+        console.log("Index of 'World':", text.indexOf("World")); // Output: 6
+
+        // 4. Extract "Hello" using slice
+        console.log("Slice (0, 5):", text.slice(0, 5)); // Output: Hello
+    </script>
+
+    <h2>Date Object Methods</h2>
+    <script>
+        let today = new Date();
+
+        // 1. Get the full year
+        console.log("Year:", today.getFullYear()); // Output: e.g., 2024
+
+        // 2. Get the month (0-11, where 0 is January)
+        console.log("Month:", today.getMonth() + 1); // Output: e.g., 10 (for October)
+
+        // 3. Get the day of the month
+        console.log("Date:", today.getDate()); // Output: e.g., 10
+
+        // 4. Get the date in a readable format
+        console.log("Date string:", today.toDateString()); // Output: e.g., Thu Oct 10 2024
+    </script>
+
+    <h2>Number Object Methods</h2>
+    <script>
+        let number = 1234.567;
+
+        // 1. Format number with 2 decimal places
+        console.log("Fixed (2 decimals):", number.toFixed(2)); // Output: 1234.57
+
+        // 2. Convert to string
+        console.log("Number as String:", number.toString()); // Output: "1234.567"
+
+        // 3. Exponential notation
+        console.log("Exponential (2 decimals):", number.toExponential(2)); // Output: 1.23e+3
+
+        // 4. Check if a value is NaN (Not a Number)
+        console.log("Is 'Hello' NaN?:", isNaN("Hello")); // Output: true
+    </script>
+
+</body>
+</html>

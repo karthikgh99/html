@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Shape with D3.js</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        svg {
+            border: 1px solid black;
+        }
+        text {
+            font-size: 14px;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h2>Star Shape Using D3.js</h2>
+    <div id="shapes"></div>
+
+    <script>
+        // Select the div where the SVG will be appended
+        const svg = d3.select("#shapes")
+                      .append("svg")
+                      .attr("width", 800)
+                      .attr("height", 500);
+        // Function to generate points for a star
+        function starPoints(centerX, centerY, outerRadius, innerRadius, numPoints) {
+            const points = [];
+            const angleStep = Math.PI / numPoints;
+
+            for (let i = 0; i < 2 * numPoints; i++) {
+                const radius = (i % 2 === 0) ? outerRadius : innerRadius;
+                const angle = i * angleStep - Math.PI / 2;  // Start pointing up
+                const x = centerX + radius * Math.cos(angle);
+                const y = centerY + radius * Math.sin(angle);
+                points.push(`${x},${y}`);
+            }
+            return points.join(" ");
+        }
+        // Generate star points with outer and inner radius
+        const star = starPoints(400, 250, 100, 50, 5);
+        // Draw the star using the polygon element
+        svg.append("polygon")
+           .attr("points", star)
+           .attr("fill", "gold")
+           .attr("stroke", "black")
+           .attr("stroke-width", 2);
+        // Add label for the star
+        svg.append("text")
+           .attr("x", 360)
+           .attr("y", 400)
+           .text("Star Shape")
+           .attr("font-size", "16px")
+           .attr("font-family", "Arial");
+    </script>
+</body>
+</html>

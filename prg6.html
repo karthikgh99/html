@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects and DOM Events</title>
+</head>
+<body>
+
+    <h1>JavaScript Objects and DOM Events</h1>
+
+    <button id="clickButton">Click Me</button>
+    <p id="mouseoverText">Hover over me</p>
+    <input type="text" id="inputBox" placeholder="Type something here">
+    <p id="output"></p>
+
+    <h2>Object Creation</h2>
+    <p id="objectOutput"></p>
+
+    <script>
+        // 1. Creating Objects
+
+        // a. Object Literal
+        const person1 = {
+            name: "John",
+            age: 30,
+            address: {
+                city: "New York"
+            }
+        };
+
+        // b. Constructor Function
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        const person2 = new Person("Alice", 25);
+
+        // c. Using Object.create()
+        const personPrototype = {
+            greet() {
+                return `Hello, my name is ${this.name}.`;
+            }
+        };
+        const person3 = Object.create(personPrototype);
+        person3.name = "Bob";
+
+        // d. Using ES6 Classes
+        class PersonClass {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+        }
+        const person4 = new PersonClass("Eve", 28);
+
+        // Display the greeting message from person3
+        document.getElementById("objectOutput").innerText = person3.greet();
+
+        // 2. DOM Events
+
+        // a. Click event
+        document.getElementById("clickButton").addEventListener("click", function() {
+            alert("Button Clicked!");
+        });
+
+        // b. Mouseover event
+        document.getElementById("mouseoverText").addEventListener("mouseover", function() {
+            this.style.color = "blue"; // Change text color to blue
+        });
+        document.getElementById("mouseoverText").addEventListener("mouseout", function() {
+            this.style.color = "black"; // Change text color back to black
+        });
+
+        // c. Input event
+        document.getElementById("inputBox").addEventListener("input", function(event) {
+            document.getElementById("output").innerText = "You typed: " + event.target.value;
+        });
+
+    </script>
+
+</body>
+</html>

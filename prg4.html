@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Stack Implementation</title>
+</head>
+<body>
+
+    <h1>Simple Stack Example</h1>
+
+    <input type="number" id="element" placeholder="Enter a number" />
+    <button onclick="pushToStack()">Push</button>
+    <button onclick="popFromStack()">Pop</button>
+    <button onclick="printStack()">Print Stack</button>
+
+    <p id="output"></p>
+
+    <script>
+        // Stack implementation using an array
+        let stack = [];
+
+        // Push element to the stack
+        function pushToStack() {
+            const element = document.getElementById('element').value;
+            if (element) {
+                stack.push(element); // Push element into the stack
+                updateOutput(`Pushed: ${element}`);
+            } else {
+                updateOutput("Please enter a value to push.");
+            }
+            document.getElementById('element').value = ''; // Clear input field
+        }
+
+        // Pop element from the stack
+        function popFromStack() {
+            if (stack.length === 0) {
+                updateOutput("Stack is empty. Nothing to pop.");
+            } else {
+                const poppedElement = stack.pop(); // Remove top element
+                updateOutput(`Popped: ${poppedElement}`);
+            }
+        }
+
+        // Print all elements in the stack
+        function printStack() {
+            if (stack.length === 0) {
+                updateOutput("Stack is empty.");
+            } else {
+                updateOutput(`Stack: ${stack.join(", ")}`);
+            }
+        }
+
+        // Update the output paragraph with a message
+        function updateOutput(message) {
+            document.getElementById('output').innerText = message;
+        }
+    </script>
+
+</body>
+</html>

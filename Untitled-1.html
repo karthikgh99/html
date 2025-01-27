@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Homepage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 15px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 40px;
+            background-color: #eef1f4;
+        }
+
+        .hero img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Greeting */
+        .greeting {
+            text-align: center;
+            font-size: 24px;
+            margin: 20px 0;
+        }
+
+        /* Products Section */
+        .products {
+            display: flex;
+            justify-content: space-around;
+            padding: 40px 0;
+        }
+
+        .product-item {
+            background-color: #fff;
+            padding: 15px;
+            text-align: center;
+            width: 30%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-item button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .product-item button:hover {
+            background-color: #218838;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body onload="displayGreeting()">
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Categories</a>
+        <a href="#">Login</a>
+        <a href="#">Cart</a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <img src="https://cdn.pixabay.com/photo/2017/06/20/19/20/holiday-2427208_1280.jpg" alt="Seasonal Sale">
+    </div>
+
+    <!-- Dynamic Greeting -->
+    <div class="greeting" id="greetingMessage"></div>
+
+    <!-- Products Section -->
+    <div class="products">
+        <div class="product-item">
+            <img src="https://cdn.pixabay.com/photo/2016/10/05/02/42/smartphone-1717163_1280.jpg" alt="Product 1">
+            <h3>Smartphone</h3>
+            <p>$299.99</p>
+            <button onclick="addToCart('Smartphone')">Add to Cart</button>
+        </div>
+        <div class="product-item">
+            <img src="https://cdn.pixabay.com/photo/2016/11/19/14/00/bag-1839563_1280.jpg" alt="Product 2">
+            <h3>Leather Bag</h3>
+            <p>$89.99</p>
+            <button onclick="addToCart('Leather Bag')">Add to Cart</button>
+        </div>
+        <div class="product-item">
+            <img src="https://cdn.pixabay.com/photo/2015/09/05/23/32/camera-924992_1280.jpg" alt="Product 3">
+            <h3>DSLR Camera</h3>
+            <p>$499.99</p>
+            <button onclick="addToCart('DSLR Camera')">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 E-commerce Website</p>
+    </div>
+
+    <script>
+        // Function to display a greeting based on the time of day
+        function displayGreeting() {
+            const greetingElement = document.getElementById('greetingMessage');
+            const currentHour = new Date().getHours();
+            let greeting;
+
+            if (currentHour < 12) {
+                greeting = 'Good Morning!';
+            } else if (currentHour < 18) {
+                greeting = 'Good Afternoon!';
+            } else {
+                greeting = 'Good Evening!';
+            }
+
+            greetingElement.textContent = greeting;
+        }
+
+        // Function to simulate adding a product to the cart
+        function addToCart(productName) {
+            alert(productName + ' has been added to your cart!');
+        }
+    </script>
+
+</body>
+</html>

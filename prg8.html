@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People Information</title>
+    <style>
+        /* Basic styling for person data */
+        .person {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>People Information</h2>
+    <div id="output"></div> <!-- Output container -->
+
+    <script>
+        function loadAndDisplayData() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                const people = this.responseXML.getElementsByTagName("person");
+                const output = document.getElementById("output");
+
+                for (let person of people) {
+                    const name = person.getElementsByTagName("name")[0].textContent;
+                    const address = person.getElementsByTagName("address")[0].textContent;
+                    const email = person.getElementsByTagName("email")[0].textContent;
+                    const phone = person.getElementsByTagName("phone")[0].textContent;
+
+                    output.innerHTML += `
+                        <div class="person">
+                            <strong>Name:</strong> ${name}<br>
+                            <strong>Address:</strong> ${address}<br>
+                            <strong>Email:</strong> ${email}<br>
+                            <strong>Phone:</strong> ${phone}
+                        </div>`;
+                }
+            };
+            xhttp.open("GET", "people.xml", true);
+            xhttp.send();
+        }
+
+        window.onload = loadAndDisplayData;
+    </script>
+
+</body>
+</html>

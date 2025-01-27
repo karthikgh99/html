@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<people>
+    <person>
+        <name>John Doe</name>
+        <address>123 Elm St, Springfield</address>
+        <email>john@example.com</email>
+        <phone>1234567890</phone>
+    </person>
+    <person>
+        <name>Jane Smith</name>
+        <address>456 Oak St, Shelbyville</address>
+        <email>jane@example.com</email>
+        <phone>0987654321</phone>
+    </person>
+    <person>
+        <name>Emily Johnson</name>
+        <address>789 Pine St, Capital City</address>
+        <email>emily@example.com</email>
+        <phone>1122334455</phone>
+    </person>
+</people>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Information</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>MCA Department Faculty</h2>
+    <table id="facultyTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Designation</th>
+                <th>Specialization</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+        // JSON data
+        const facultyData = {
+            "faculty": [
+                {
+                    "id": "F001",
+                    "name": "Dr. Rajesh Kumar",
+                    "designation": "Professor",
+                    "specialization": "Data Structures and Algorithms"
+                },
+                {
+                    "id": "F002",
+                    "name": "Ms. Anjali Patil",
+                    "designation": "Assistant Professor",
+                    "specialization": "Database Management Systems"
+                },
+                {
+                    "id": "F003",
+                    "name": "Mr. Sandeep Sharma",
+                    "designation": "Associate Professor",
+                    "specialization": "Computer Networks"
+                },
+                {
+                    "id": "F004",
+                    "name": "Dr. Priya Mehta",
+                    "designation": "Professor",
+                    "specialization": "Artificial Intelligence"
+                },
+                {
+                    "id": "F005",
+                    "name": "Ms. Kavita Desai",
+                    "designation": "Lecturer",
+                    "specialization": "Cloud Computing"
+                }
+            ]
+        };
+
+        // Function to load data into the table
+        function loadTableData() {
+            const tableBody = document.querySelector("#facultyTable tbody");
+            let dataHtml = "";
+
+            facultyData.faculty.forEach(faculty => {
+                dataHtml += `<tr>
+                    <td>${faculty.id}</td>
+                    <td>${faculty.name}</td>
+                    <td>${faculty.designation}</td>
+                    <td>${faculty.specialization}</td>
+                </tr>`;
+            });
+
+            tableBody.innerHTML = dataHtml;
+        }
+
+        // Call the function to load the data when the page loads
+        window.onload = loadTableData;
+    </script>
+</body>
+</html>
